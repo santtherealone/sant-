@@ -1521,7 +1521,8 @@
         <div class="form-glow"></div>
 
         <div id="formContainer">
-          <form id="contactForm" novalidate>
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="887379bd-21f3-41ba-8335-5d8efa0b5743">
             <div class="form-row">
               <div class="field" id="field-nome">
                 <label for="nome">Nome</label>
@@ -1687,30 +1688,7 @@
   }
 
   // FORM SUBMIT
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const objetivo = document.getElementById('objetivo').value;
-    const mensagem = document.getElementById('mensagem').value.trim();
-
-    if (!nome || !email || !objetivo || !mensagem) {
-      // Subtle shake animation on empty required fields
-      [
-        ['nome', nome],
-        ['email', email],
-        ['objetivo', objetivo],
-        ['mensagem', mensagem]
-      ].forEach(([id, val]) => {
-        if (!val) {
-          const field = document.getElementById('field-' + id);
-          field.style.borderColor = 'rgba(255,255,255,0.2)';
-          setTimeout(() => field.style.borderColor = '', 1500);
-        }
-      });
-      return;
-    }
+  
 
     // Simulate send
     const btn = document.querySelector('.submit-btn');
